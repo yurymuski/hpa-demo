@@ -1,0 +1,12 @@
+# https://github.com/bitnami/charts/blob/main/bitnami/nginx/values.yaml
+metrics:
+  enabled: true
+  serviceMonitor: # adds metrics to existing kube-prometheus-stack's prometheus
+    enabled: true
+
+# needed just to have generated hpa to modify it later
+autoscaling:
+  enabled: true
+  minReplicas: "1"
+  maxReplicas: "20"
+  targetCPU: "1000"

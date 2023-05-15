@@ -1,0 +1,26 @@
+# https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus-adapter/values.yaml
+prometheus:
+  url: http://kube-prometheus-stack-prometheus.default.svc.cluster.local # prometheus internal endpoint
+  port: 9090
+  path: ""
+
+rules:
+  default: false # not needed, but configmap with rules can be used as example
+
+  custom:
+
+    # - seriesQuery: '{__name__=~"^some_metric_count$"}'
+    #   resources:
+    #     template: <<.Resource>>
+    #   name:
+    #     matches: ""
+    #     as: "my_custom_metric"
+    #   metricsQuery: sum(<<.Series>>{<<.LabelMatchers>>}) by (<<.GroupBy>>)
+  
+    - seriesQuery: '{__name__=~"^nginx_http_requests_total$"}'
+      resources:
+        template: <<.Resource>>
+      name:
+        matches: ""
+        as: "my_custom_metric_nginx_http_requests_total"
+      metricsQuery: (sum(rate(<<.Series>>{<<.LabelMatchers>>}[1m])) by (<<.GroupBy>>))
