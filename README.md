@@ -2,6 +2,8 @@
 
 ### How to scale k8s deployments depending on custom prometheus metric using HPA
 
+Alternative way is not use KEDA [demo-repo](https://github.com/yurymuski/k8s-keda-demo)
+
 ---
 ## setup kube-prometheus-stack
 https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml
@@ -83,5 +85,6 @@ kubectl get hpa test-app-nginx  --watch
 ```sh
 helm uninstall test-app
 helm uninstall prometheus-adapter
-helm uninstall kube-prometheus-stack
+helm uninstall kube-prometheus-stack # NOTE: helm uninstall does not remove pvc
+kubectl delete pvc -l app.kubernetes.io/name=prometheus
 ```
