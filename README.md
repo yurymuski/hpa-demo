@@ -1,5 +1,8 @@
-# hpa-demo
+# k8s-hpa-demo
 
+### How to scale k8s deployments depending on custom prometheu smetric using HPA
+
+---
 ## setup kube-prometheus-stack
 https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml
 
