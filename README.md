@@ -1,6 +1,6 @@
 # k8s-hpa-demo
 
-### How to scale k8s deployments depending on custom prometheu smetric using HPA
+### How to scale k8s deployments depending on custom prometheus metric using HPA
 
 ---
 ## setup kube-prometheus-stack
