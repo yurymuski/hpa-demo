@@ -10,3 +10,5 @@ autoscaling:
   minReplicas: "1"
   maxReplicas: "20"
   targetCPU: "1000"
+
+terminationGracePeriodSeconds: 60 # NOTE: set the value your app need to finish active workflows
